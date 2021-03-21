@@ -1,3 +1,12 @@
+/*
+============================================
+; Title:  API-Gateway
+; Author: Mark Watson
+; Date: 21 March 2021
+; Description: app.js file for gateway project
+;===========================================
+*/
+
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
@@ -5,7 +14,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var mongoose = require('mongoose');
 
-mongoose.connect('mongodb+srv://admin:admin@main-cluster.5we8u.mongodb.net/myFirstDatabase?retryWrites=true&w=majority&useNewUrlParser=true&useUnifiedTopology=true', {
+mongoose.connect('mongodb+srv://admin:admin@main-cluster.5we8u.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', {
   useNewUrlParser: true, useUnifiedTopology: true
 }).then (() => console.log('connection successful'))
 .catch((err) => console.error(err));
