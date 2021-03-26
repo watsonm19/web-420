@@ -3,10 +3,11 @@
 ; Title:  API-Gateway
 ; Author: Mark Watson
 ; Date: 21 March 2021
-; Description: app.js file for gateway project
+; Description: app.js file for the gateway project.
 ;===========================================
 */
 
+// imports required modules
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
@@ -14,6 +15,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var mongoose = require('mongoose');
 
+// connect to the MongoDB database
 mongoose.connect('mongodb+srv://admin:admin@main-cluster.5we8u.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', {
   useNewUrlParser: true, useUnifiedTopology: true
 }).then (() => console.log('connection successful'))
@@ -21,12 +23,14 @@ mongoose.connect('mongodb+srv://admin:admin@main-cluster.5we8u.mongodb.net/myFir
 
 var indexRouter = require('./routes/index');
 
+// intializes app
 var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
+// use statements
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -51,4 +55,5 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
+// export app for use
 module.exports = app;
