@@ -22,6 +22,7 @@ mongoose.connect('mongodb+srv://admin:admin@main-cluster.5we8u.mongodb.net/myFir
 .catch((err) => console.error(err));
 
 var indexRouter = require('./routes/index');
+var apiCatalog = require('./routes/api-catalog');
 
 // intializes app
 var app = express();
@@ -38,6 +39,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
+app.use('/api', apiCatalog);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
