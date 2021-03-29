@@ -10,7 +10,7 @@
 // import mongoose for use
 var mongoose = require('mongoose');
 
-// create schema
+// create user schema
 var userSchema = new mongoose.Schema({
   username: String,
   password: String,
