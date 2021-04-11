@@ -19,3 +19,18 @@ var userSchema = new mongoose.Schema({
 
 // export mongoose model
 module.exports = mongoose.model('User', userSchema)
+
+/**
+ Database operations
+*/
+
+// adds the new user to the database
+module.exports.add = (user, callback) => {
+  user.save(callback);
+}
+
+// query by ID
+module.exports.getById = (id, callback) => {
+  var query = {_id: id};
+  User.findById(query, callback);
+}

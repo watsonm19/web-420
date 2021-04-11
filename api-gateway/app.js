@@ -24,7 +24,7 @@ mongoose.connect('mongodb+srv://admin:admin@main-cluster.5we8u.mongodb.net/myFir
 var indexRouter = require('./routes/index');
 var apiCatalog = require('./routes/api-catalog');
 
-// intializes app
+// initializes app
 var app = express();
 
 // view engine setup
