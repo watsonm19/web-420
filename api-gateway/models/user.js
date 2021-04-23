@@ -18,7 +18,7 @@ var userSchema = new mongoose.Schema({
 });
 
 // export mongoose model
-module.exports = mongoose.model('User', userSchema)
+const User = module.exports = mongoose.model('User', userSchema)
 
 /**
  Database operations
