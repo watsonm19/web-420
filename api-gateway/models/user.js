@@ -18,7 +18,7 @@ var userSchema = new mongoose.Schema({
 });
 
 // export mongoose model
-const User = module.exports = mongoose.model('User', userSchema)
+const User = module.exports = mongoose.model('User', userSchema);
 
 /**
  Database operations
@@ -27,10 +27,16 @@ const User = module.exports = mongoose.model('User', userSchema)
 // adds the new user to the database
 module.exports.add = (user, callback) => {
   user.save(callback);
-}
+};
 
 // query by ID
 module.exports.getById = (id, callback) => {
   var query = {_id: id};
   User.findById(query, callback);
-}
+};
+
+// query by email
+module.exports.getOne = (e, callback) => {
+  var query = {email: e};
+  User.findOne(query, callback);
+};
